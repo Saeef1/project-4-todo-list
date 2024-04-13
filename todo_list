@@ -1,0 +1,35 @@
+//kindly check
+//npx saeef32_todo_list
+import inquirer from "inquirer";
+
+let list:any[] = ["Breakfast", "Shower", "Learn type script"]
+while (true ) {
+    const todo = await inquirer.prompt({
+        name: "todo_list",
+        message: "What would you like to do ?",
+        type: "list",
+        choices: ["View list", "Edit list", "Delete list", "Exit"]
+    });
+    if (todo.todo_list === "Exit") {
+        break
+    } else if (todo.todo_list === "View list"){
+        let i =0
+        list.forEach(
+            item => {console.log(`${++i} ${item}`)}
+        );
+    } else if (todo.todo_list === "Edit list"){
+        let new_list = await inquirer.prompt({
+            name:`adding`,
+            type:`input`,
+            message:`what would you like to add ?`
+        });
+        list.push(new_list.adding);
+    } else if (todo.todo_list === "Delete list"){
+        let remove = await inquirer.prompt({
+            name: `removing`,
+            type:`list`,
+            choices:list
+        });
+        if (list.includes(remove.removing)){
+            list.pop()
+        }};};
