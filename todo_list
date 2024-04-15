@@ -30,6 +30,6 @@ while (true ) {
             type:`list`,
             choices:list
         });
-        if (list.includes(remove.removing)){
-            list.pop()
-        }};};
+        let Delete :number =list.indexOf(remove.removing) 
+        list.splice(Delete,1)        
+};};
